@@ -7,7 +7,7 @@ int t;
 cin >> t;
 for(int i=0;i<t;i++)
 {
-int x,y,p,q;
+long long int x,y,p,q;
 cin >> x >> y >> p >> q ;
 if(p == q )
 {  
@@ -26,8 +26,8 @@ if ( p==0 && x!=0)
   continue;
 }
 
-int qf=q;
-int pf=p;
+long long int qf=q;
+long long int pf=p;
 
 while( x > pf || y > qf || ( pf-x > qf-y ) )
 {
