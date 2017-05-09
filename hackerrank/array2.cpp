@@ -5,7 +5,7 @@ int maxs=0;
 void hourglass(int i , int j )
 {
 int sum = a[i][j]+ a[i][j+1]+ a[i][j+2]+ a[i+1][j+1]+ a[i+2][j]+ a[i+2][j+1] +a[i+2][j+2];
-if(maxs < sum)
+if(maxs < sum || (i==0 && j==0) )
 maxs = sum;
 
 
