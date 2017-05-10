@@ -34,7 +34,7 @@ int tm = (tl + tr) /2 ;
 if(inx <= tm  )
 	update( 2*v, tl , tm ,val ,inx ,t);
 else
-	update( 2*v+1, tm+1, tr , val ,inx-tm-1 , t);
+	update( 2*v+1, tm+1, tr , val ,inx , t);
 t[v] = t[2*v] + t[v*2+1];
 
 
@@ -63,7 +63,7 @@ int main ()
 	   {    int l,r,sum; cin >> l >> r;
 		  sum =  prsum( 1 , 0 , n-1 , l-1 , r-1,t );  cout << sum << endl;   }
 	    else { int val,inx; cin >> inx >> val;
-	    update(1,0,n-1,val,inx,t);
+	    update(1,0,n-1,val,inx-1,t);
 	    
 	    
 	    }//update
