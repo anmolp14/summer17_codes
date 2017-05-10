@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void build ( int*a, int v , int tl, int tr , int*t )
+void build ( int*a, int v , int tl, int tr ,long long int*t )
 {     if(tl == tr)
 	     t[v] = a[tl];
 	else{
@@ -12,7 +12,7 @@ void build ( int*a, int v , int tl, int tr , int*t )
 
 }
 
-int prsum ( int v , int tl , int tr , int l , int r, int * t )
+long long int prsum ( int v , int tl , int tr , int l , int r,long long int * t )
 { 
 	if( l > r)
 		return 0 ;
@@ -25,7 +25,7 @@ return  prsum(2*v ,tl,tm,l,min(tm,r ),t  ) + prsum(2*v + 1 ,tm+1,tr, max(tm+1,l 
 
 
 }
-void update ( int v , int tl ,int tr , int val , int inx, int *t)
+void update ( int v , int tl ,int tr , int val , int inx, long long int *t)
 {
 if(tl == tr)
 t[v] = val;
@@ -54,7 +54,7 @@ int main ()
 		cin >> a[i];
 	int m;
 	cin >> m;
-	int t[4*n];
+	long long int t[4*n];
 	build(a,1,0,n-1,t);
 	for(int j=0;j<m;j++)
 	{
