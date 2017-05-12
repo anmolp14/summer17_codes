@@ -18,7 +18,7 @@ i=(i-1)/2;
 
 
 void delh( long int a, vector <long int>*  heap )
-{ int i=0;
+{ int i=0,flag =0;
  while((*heap)[i] != a) 
 	i++;
 swap((*heap)[i] , (*heap)[(*heap).size() -1]);
@@ -26,9 +26,10 @@ swap((*heap)[i] , (*heap)[(*heap).size() -1]);
 while( i!=0 && (*heap)[i] < (*heap)[(i-1)/2] )
  {swap((*heap)[i] , (*heap)[(i-1)/2]);
  i=(i-1)/2;
+ flag=1;
  }
-return;
-while( (2*i+2) < (*heap).size() && ((*heap)[i] > min((*heap)[2*i+1] , (*heap)[2*i+2] )))
+
+while( flag ==0 && (2*i+2) < (*heap).size() && ((*heap)[i] > min((*heap)[2*i+1] , (*heap)[2*i+2] )))
 {
 if((*heap)[2*i+1] ==  min((*heap)[2*i+1] , (*heap)[2*i+2] ))
 { swap((*heap)[2*i+1],(*heap)[i]); i=2*i+1;  }
@@ -36,7 +37,7 @@ else{ swap((*heap)[2*i+2],(*heap)[i] ); i=2*i+2;     }
 
 }
 
-if((2*i+2) == (*heap).size() && (*heap)[i] > (*heap)[2*i+1]  )
+if((2*i+2) == (*heap).size() && (*heap)[i] > (*heap)[2*i+1] && flag==0 )
 	swap((*heap)[i] , (*heap)[2*i+1]);
 
 
