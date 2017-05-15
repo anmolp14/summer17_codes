@@ -9,8 +9,8 @@ int n,m,c,waste=0; cin >> n >> m;
 for( int j=0;j<n;j++)
 {
 cin >> c;
-if( c < m)
-	waste += m-c;
+if( c%m != 0)
+waste += m - c%m;
 
 
 
