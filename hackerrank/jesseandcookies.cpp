@@ -41,12 +41,19 @@ i=(i-1)/2;
 
 }
 
-void heapify( vector<long int>* a , long int val )
+void heapify( vector<long int>* a, long int n)
 {
+long int mini = n ;
+if( 2*n+1 < (*a).size() && (*a)[n] > (*a)[2*n+1] )
+	mini = 2*n+1;
+if( 2*n+2 < (*a).size() && (*a)[mini] > (*a)[2*n+2])
+	mini = 2*n+2;
+if( mini != n)
+{
+swap((*a)[mini],(*a)[n]);
+heapify( a , mini);
 
-
-
-
+}
 }
 
 
@@ -55,15 +62,21 @@ int main()
 long int n,k,temp;cin >> n >> k;vector <long int> a;
 for(long int i=0;i<n;i++)
 {cin >> temp; a.push_back(temp);}
-heapify(&a,n);
 
-while( a[0] < k )
+for( long int j= n/2 -1; j >=0; j--)
+{heapify(&a,j);}
+
+while( a[0] < k && a.size() > 1 )
 { long int mi1,mi2;
 mi1 = extractmin( &a );
 mi2 = extractmin( &a );
 mi1 = mi1 + 2 * mi2 ;
 insertheap( &a, mi1);
 }
+if(a.size() == 1 && a[0] < k )
+	cout <<  -1;
+else
+	cout << n-a.size();
 return 0;
 }
 
