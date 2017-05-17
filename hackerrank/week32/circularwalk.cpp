@@ -33,7 +33,7 @@ int main() {
     {
         if( r[i] * 2 + 1 > n)
         {
-            for( int y=0;y<n;y++)
+            for( long int y=0;y<n;y++)
                 G[i].push_back(y);
             continue;
         }
