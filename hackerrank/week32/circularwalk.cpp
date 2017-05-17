@@ -5,7 +5,7 @@ vector <long int> visited,dist;
 void BFS( vector< vector<long int> >* G , long int s, long int t )
 {long int temp;
     queue <long int> q; q.push(s); dist[s] = 0; visited[s] =1;
-    while(  visited[t]==0 )
+    while(  !q.empty() )
     {
         temp = q.front(); q.pop();
         for(long int i=0; i < (*G)[temp].size(); i++)
@@ -47,7 +47,7 @@ int main() {
     }
 
    for(long int i=0;i<n ;i++)
-    { visited.push_back(0); dist.push_back(n+1);}
+    { visited.push_back(0); dist.push_back(-1);}
 
     BFS(&G, s,t);
 
