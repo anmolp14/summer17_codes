@@ -1,0 +1,17 @@
+# total 128 ascii chars , 7 bits long required but generally have 1byte(8bits)
+values are from 0-127. with 0 being '\0'
+
+#to check power of 2
+(x && !(x & (x - 1)))
+
+#binary representation of (x-1) can be obtained by simply flipping all
+the bits to the right of rightmost 1 in x and also including the rightmost 1.
+
+#x ^ ( x & (x-1)) : Returns the rightmost 1 in binary representation of x.
+
+#x & (-x) : Returns the rightmost 1 in binary representation of x
+
+(-x) is the two’s complement of x. (-x) will be equal to one’s complement of x plus 1. 
+Therefore (-x) will have all the bits flipped that are on the left of the rightmost 1 in x. So x & (-x) will return rightmost 1.
+
+
